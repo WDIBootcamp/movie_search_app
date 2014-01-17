@@ -1,9 +1,8 @@
 <!-- views/results.erb -->
-<div class="results" id="active">
+<div class="results" id="span2">
 <ul>
 	<% @sorted_result.each do |movie| %>
 	   <li>
-
 	   	<a href="/movies/<%= movie['imdbID']%>"><%= movie['Title']%> : <%= movie['Year']%></a>
 	   </li>
 	<% end %>

@@ -15,7 +15,6 @@ body	{
 }
 
 input[type="text"]  {
-  /*background: rgba(29,54,87,1);*/
   color: gray;
   text-align: left;
   font-size: 55px; 
@@ -25,8 +24,6 @@ input[type="text"]  {
   margin-left: 5%;
 }
 
-
-
 input[type="text"]:focus  {
   outline: none;
   color: rgba(100,182,237,1)
@@ -35,12 +32,11 @@ input[type="text"]:focus  {
 /*  RESULTS  */
 .results	{
 	padding: 10px 0px 10px 0px;
-	background: rgba(255,255,255,1);	
-    margin: 80px 0px -500px 0px;
-    width: 0 auto;
+  margin: 80px 0px -500px 0px;
+  width: 0 auto;
 }
 
-#active	{
+#span	{
 	background: rgba(29,54,87,1);
 }
 
