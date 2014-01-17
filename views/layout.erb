@@ -1,0 +1,27 @@
+<!-- views/layout.erb -->
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Search For a Movie</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css<http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css>" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="container">
+		  <h1></h1>
+		  <form accept-charset="UTF-8" action="/results" method="post">
+		    <!-- <label for="movie">Search for:</label> -->
+		    <input id="movie" name="movie" type="text" placeholder="search for any movie" />
+		    <!-- <input name="commit" type="submit" value="Search" />  -->
+		  </form>
+		</div>
+		<div class="results">
+			<!-- yield takes you to index.erb -->
+			<%= yield %>
+	</div>
+	</body>
+
+</html>

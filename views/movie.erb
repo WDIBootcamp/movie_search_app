@@ -1,0 +1,7 @@
+<!-- views/movie.erb -->
+
+<h1><%@result2['Title']%></h1>
+
+<!-- for some reason the image is not showing -->
+<h2><img src='<%@result2['Poster']%>'><h2>
+<p><a href="/imdbid/<%= @result2['imdbID']%>">IMDB</a></<p>

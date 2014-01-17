@@ -1,0 +1,10 @@
+<!-- views/results.erb -->
+
+<ul>
+	<% @sorted_result.each do |movie| %>
+	   <li>
+
+	   	<a href="/movies/<%= movie['imdbID']%>"><%= movie['Title']%> : <%= movie['Year']%></a>
+	   </li>
+	<% end %>
+</ul>
