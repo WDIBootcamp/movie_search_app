@@ -10,18 +10,19 @@
 	</head>
 
 	<body>
-		<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <h1></h1>
+		  
 		  <form accept-charset="UTF-8" action="/results" method="post">
 		    <!-- <label for="movie">Search for:</label> -->
 		    <input id="movie" name="movie" type="text" placeholder="search for any movie" />
 		    <!-- <input name="commit" type="submit" value="Search" />  -->
 		  </form>
-		</div>
+		</nav>  
 		<div class="results">
 			<!-- yield takes you to index.erb -->
 			<%= yield %>
-	</div>
+		</div>
 	</body>
 
 </html>
