@@ -21,6 +21,8 @@ post '/results' do
   # sorting the results
   @sorted_result = result["Search"].sort_by{ |movie| movie['Year'] } 
 
+  # loop through each movie, make a new search, grab the rest of the info: director, plot, poster
+
   erb :results
 
 end

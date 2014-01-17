@@ -1,12 +1,13 @@
 /*  public/stylesheet/stye.css  */
 
-body	{
-	margin: 0;
+body, html, .container-fluid	{
+	height: 100%
+
 }
 
 
 /*  SEARCH  */
-.navbar-fixed-top{
+.navbar{
    width: 100%;
    text-align: center;
    float: center;
@@ -31,15 +32,12 @@ input[type="text"]:focus  {
 
 /*  RESULTS  */
 .results	{
-	padding: 10px 0px 10px 0px;
-  margin: 80px 0px -500px 0px;
-  width: 0 auto;
+  height:100%;
+  width: 100%;
+  background: rgba(29,54,87,1);
+/*	padding: 10px 0px 10px 0px;
+  margin: 80px 0px -500px 0px;*/
 }
-
-#span	{
-	background: rgba(29,54,87,1);
-}
-
 
 a {
 	color: white;

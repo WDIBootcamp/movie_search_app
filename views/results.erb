@@ -1,10 +1,14 @@
 <!-- views/results.erb -->
-<div class="results" id="span2">
-<ul>
-	<% @sorted_result.each do |movie| %>
-	   <li>
-	   	<a href="/movies/<%= movie['imdbID']%>"><%= movie['Title']%> : <%= movie['Year']%></a>
-	   </li>
-	<% end %>
-</ul>
+<div class="container-fluid">
+	<div class="row results">
+		<div class="col-sm-12">
+			<ul>
+				<% @sorted_result.each do |movie| %>
+				   <li>
+				   	<a href="/movies/<%= movie['imdbID']%>"><%= movie['Title']%> : <%= movie['Year']%></a>
+				   </li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
 </div>
