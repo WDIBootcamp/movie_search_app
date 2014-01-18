@@ -1,13 +1,21 @@
 <!-- views/results.erb -->
 <div class="container-fluid">
-	<div class=" results">
+	<div class="results">
 		<div class="row">
-			<div class="container"
+			<div class="container">
 				<% @sorted_result.each do |movie| %>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 ">
-				   	<a href="/movies/<%= movie['imdbID']%>"><%= movie['Title']%> : <%= movie['Year']%></a>
+
+					<div class="poster"><img src='<%= movie['Poster']%>'></div>
+					<div class="title"><%= movie['Title']%></div>
+					<div class="year"><%= movie['Year']%></div>
+					<div class="director"><%= movie['Director']%></div>
+					<div class="actors"><%= movie['Actors']%></div>
+					<div class="plot"><%= movie['Plot']%></div>
+
 				</div>
+				
 				<% end %>
 			</div>
 		</div>

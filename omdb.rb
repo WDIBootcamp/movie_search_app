@@ -22,18 +22,10 @@ post '/results' do
   @sorted_result = result["Search"].sort_by{ |movie| movie['Year'] } 
 
   # loop through each movie, make a new search, grab the rest of the info: director, plot, poster
-  @sorted_result.each do |get|
-    imdb_id = get['imdbID']
-    response2 = Typhoeus.get("www.omdbapi.com", :params => {:i => imdb_id})
+  @sorted_result.map! do |get|
+    response2 = Typhoeus.get("www.omdbapi.com", :params => {:i => get['imdbID']})
     result2 = JSON.parse(response2.body)
-      result2.each do |movie|
-        @title = movie['Title']
-        @year = movie['Year']
-        @director = movie['Director']
-        @actors = movie['Actors']
-        @plot = movie['Plot']
-        @poster = movie['Poster']
-      end
+    get = result2
   end
 
   erb :results
