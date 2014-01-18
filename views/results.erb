@@ -1,5 +1,5 @@
 <!-- views/results.erb -->
-<div class="container-fluid">
+<div >
 	<div class="results">
 		<div class="row">
 			<div class="container">
@@ -7,15 +7,15 @@
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 ">
 
-					<div class="poster"><img src='<%= movie['Poster']%>'></div>
-					<div class="title"><%= movie['Title']%></div>
-					<div class="year"><%= movie['Year']%></div>
-					<div class="director"><%= movie['Director']%></div>
-					<div class="actors"><%= movie['Actors']%></div>
-					<div class="plot"><%= movie['Plot']%></div>
+					<div class="display poster"><img src='<%= movie['Poster']%>' class="img-responsive" alt="Responsive image"></div>
+					<div class="display title"><%= movie['Title']%></div>
+					<div class="display year"><%= movie['Year']%></div>
+					<div class="display director"><%= movie['Director']%></div>
+					<div class="display actors"><%= movie['Actors']%></div>
+					<div class="display plot"><%= movie['Plot']%></div>
 
 				</div>
-				
+
 				<% end %>
 			</div>
 		</div>
