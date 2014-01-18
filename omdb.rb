@@ -22,6 +22,14 @@ post '/results' do
   @sorted_result = result["Search"].sort_by{ |movie| movie['Year'] } 
 
   # loop through each movie, make a new search, grab the rest of the info: director, plot, poster
+  @sorted_result.each do |movie|
+    @title = movie['Title']
+    @year = movie['Year']
+    @director = movie['Director']
+    @actors = movie['Actors']
+    @plot = movie['Plot']
+    @poster = movie['Poster']
+  end
 
   erb :results
 
