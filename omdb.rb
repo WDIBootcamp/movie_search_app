@@ -16,13 +16,12 @@ end
 
 # the CREATE METHOD
 post '/results' do
-  # the movie selected
   @search_str = params[:movie]
 
   # get movies from omdb api and parse
   response = get_typheous_parse(:s, @search_str)
   
-  # sorting the results
+  # sort the results
   @sorted_result = response["Search"].sort_by{ |movie| movie['Year'] } 
 
   # loop through each movie, make a new search, grab the rest of the info: director, plot, poster
@@ -33,16 +32,6 @@ post '/results' do
 
   erb :results
 
-end
-
-# the SHOW METHOD/ROUTE for movie
-get '/movies/:imdb' do |imdb_id|
-
-  response2 = Typhoeus.get("www.omdbapi.com", :params => {:i => imdb_id})
-  @result2 = JSON.parse(response2.body)
-
-  erb :movie
-  
 end
 
 
