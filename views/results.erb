@@ -3,19 +3,35 @@
 	<div class="row result-row">
 		<% @sorted_result.each do |movie| %>
 		
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 each-movie">
-		<a href="/imdbid/<%= movie['imdbID']%>">	
-			<div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">	
-				<div class="display poster"><img src='<%= movie['Poster']%>' class="img-responsive" alt="Responsive image"></div>
-			</div>
-			<div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">	
-				<div class="display title_year"><%= movie['Title']%> (<%= movie['Year']%>)</div>
-				<div class="display director">Director: <%= movie['Director']%></div>
-				<div class="display actors">Stars: <%= movie['Actors']%></div>
-				<div class="display plot"><%= movie['Plot']%></div>
-			</div>
-		</a>
-		</div>
+		<% if movie['Poster'] == "N/A" %>
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 each-movie">
+				<a href="/imdbid/<%= movie['imdbID']%>">	
+					<div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+						<div class="display title_year"><%= movie['Title']%> (<%= movie['Year']%>)</div>
+						<div class="display director">Director: <%= movie['Director']%></div>
+						<div class="display actors">Stars: <%= movie['Actors']%></div>
+						<div class="display plot"><%= movie['Plot']%></div>
+					</div>
+				</a>
+				</div>
+
+			<% else %>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 each-movie">
+				<a href="/imdbid/<%= movie['imdbID']%>">	
+					<div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">	
+						<div class="display poster"><img src='<%= movie['Poster']%>' class="img-responsive" alt="Responsive image"></div>
+					</div>	
+					<div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">	
+						<div class="display title_year"><%= movie['Title']%> (<%= movie['Year']%>)</div>
+						<div class="display director">Director: <%= movie['Director']%></div>
+						<div class="display actors">Stars: <%= movie['Actors']%></div>
+						<div class="display plot"><%= movie['Plot']%></div>
+					</div>
+				</a>
+				</div>
+
+			<% end %>
 
 		<% end %>
 	</div>

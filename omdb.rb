@@ -15,7 +15,7 @@ end
 
 
 # the CREATE METHOD
-post '/results' do
+post '/results' do 
   @search_str = params[:movie]
 
   # get movies from omdb api and parse
@@ -34,6 +34,16 @@ post '/results' do
 
 end
 
+get '/results/:year' do 
+  @search_str = params[:movie]
+  response = get_typheous_parse(:y, @search_str)
+  @sorted_result = response["Search"].sort_by{ |movie| movie['Year'] } 
+   @sorted_result.map! do |get|
+    response2 = get_typheous_parse(:i, get['imdbID'])
+    get = response2
+  end
+  
+end
 
 get '/imdbid/:imdb' do |imdb_id|
 

@@ -82,13 +82,13 @@ input[type="text"]:focus  {
 }
 
 /*Why are these classes not working:*/
-#col-big {
+/*#col-big {
   font-size: 3em;
 }
 
 #col-small {
   font-size: .5em;
-}
+}*/
 
 /*  RESULTS  */
 
@@ -96,27 +96,33 @@ input[type="text"]:focus  {
   height: 100%;
   width: 100%;
   padding-top: 230px;
-  background: rgba(29,54,87,1);
   font-family: 'Helvetica', sans-serif;
   font-weight: 300;
 }
 
 .display {
-	color: white;
+	color: rgb(127, 140, 141);
 	text-decoration: none;	
   font-size: 1em;
   padding: 10px;
 }
 
-.result-row  {
-  padding-top: 100px
+.display:hover {
+  color: white;
 }
+
+.result-row  {
+  padding-top: 100px;
+}
+
 .each-movie:hover {
-  background-color: rgba(255,255,255,0.3) ;
+  background-color: rgb(250, 188, 155) ;
 }
 
 .each-movie {
+  background-color: white;
   max-height: 400px;
   min-height: 400px;
+
 }
 
