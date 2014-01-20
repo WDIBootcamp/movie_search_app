@@ -2,16 +2,32 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'typhoeus'
 require 'json'
+require 'pg'
 
 get '/' do
   
+  # create_movies_table()
   erb :index
-  #display movies
+  
 end
 
 def get_typheous_parse (type, name)
  JSON.parse((Typhoeus.get("www.omdbapi.com", :params => {type => name})).body)
 end
+
+# def create_movies_table
+#   c = PGconn.new(:host => "localhost", :dbname => "testdb")
+#   c.exec %q(
+#     CREATE TABLE IF NOT EXISTS movies_history (
+#       id SERIAL PRIMARY KEY,
+#       title TEXT,
+#       director TEXT,
+#       imdb TEXT,
+#       poster TEXT,
+#       );
+#   )
+#   c.close
+# end
 
 
 # the CREATE METHOD
@@ -33,6 +49,38 @@ post '/results' do
 
 end
 
+get '/imdbid/:imdb' do |imdb_id|
+
+  # movie_result = get_typheous_parse(:i, imdb_id)
+
+
+  # c = PGconn.new(:host => "localhost", :dbname => "testdb")
+  # c.exec_params %Q(
+  #   INSERT INTO movies_history (title, director, imdb, poster)
+  #   VALUES ($1, $2, $3, $4);
+  #   ), [movie_result['Title'], movie_result['Director'], imdb_id, movie_result['Poster']] 
+  # c.close
+
+  # reroute to imdb's website
+  redirect "http://www.imdb.com/title/#{imdb_id}"
+
+end
+
+post '/history' do
+
+  # c = PGconn.new(:host => "localhost", :dbname => "testdb")
+  # c.exec %q(
+  #   SELECT m.name, m.poster FROM movies_history AS m;
+  # )
+  # c.close
+
+  erb :history
+
+  #have to work on erb :history
+
+end
+
+
 get '/results/:year' do 
   @search_str = params[:movie]
 
@@ -40,15 +88,6 @@ get '/results/:year' do
   @sorted_result = response["Search"].sort_by{ |movie| movie['Year'] } 
    @sorted_result.map! do |get|
     response2 = get_typheous_parse(:i, get['imdbID'])
-    get = response2
   end
 
 end
-
-get '/imdbid/:imdb' do |imdb_id|
-
-  # reroute to imdb's website
-  redirect "http://www.imdb.com/title/#{imdb_id}"
-
-end
-
