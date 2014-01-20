@@ -95,6 +95,7 @@ input[type="text"]:focus  {
 .results	{
   height: 100%;
   width: 100%;
+  background: white ;
   padding-top: 230px;
   font-family: 'Helvetica', sans-serif;
   font-weight: 300;
