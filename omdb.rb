@@ -26,8 +26,7 @@ post '/results' do
 
   # loop through each movie, make a new search, grab the rest of the info: director, plot, poster
   @sorted_result.map! do |get|
-    response2 = get_typheous_parse(:i, get['imdbID'])
-    get = response2
+    get_typheous_parse(:i, get['imdbID'])
   end
 
   erb :results
@@ -36,13 +35,14 @@ end
 
 get '/results/:year' do 
   @search_str = params[:movie]
+
   response = get_typheous_parse(:y, @search_str)
   @sorted_result = response["Search"].sort_by{ |movie| movie['Year'] } 
    @sorted_result.map! do |get|
     response2 = get_typheous_parse(:i, get['imdbID'])
     get = response2
   end
-  
+
 end
 
 get '/imdbid/:imdb' do |imdb_id|
