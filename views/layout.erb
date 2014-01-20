@@ -6,6 +6,8 @@
 	<head>
 		<title>Search For a Movie</title>
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,18 +16,41 @@
 	<body>
 		<div class="container">
 			<div class"row navbar-row">
-				<div class= "col-xs-12 col-sm-12" id="col-big">
-				<div class =" col-md-12 col-lg-12" id="col-small">	
+				<div class= "col-xs-12 col-sm-12" id="col-small">
+				<div class =" col-md-12 col-lg-12" id="col-big">	
 					<nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
 					  <form accept-charset="UTF-s8" action="/results" method="post">
 					    <input id="movie" name="movie" type="text" placeholder="search for any movie" />
 					  </form>
+					<!--  **** dropdown button **** -->
+
+					<ul class="nav nav-pills">
+				        <li class="dropdown">
+				            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Titles <b class="caret"></b></a>
+				            <ul class="dropdown-menu">
+				                <li><a href="#">Titles</a></li>
+				                <li><a href="#">Directos</a></li>
+				                <li><a href="#">Actors Items</a></li>
+				                <li class="divider"></li>
+				                <li><a href="#">Trash</a></li>
+				            </ul>
+				        </li>
+				        <li class="dropdown pull-right">
+				            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
+				            <ul class="dropdown-menu">
+				                <li><a href="#">Action</a></li>
+				                <li><a href="#">Another action</a></li>
+				                <li class="divider"></li>
+				                <li><a href="#">Settings</a></li>
+				            </ul>
+				        </li>
+				    </ul>
+
 					</nav> 
 				</div>	
 				</div>
 			</div>
 		</div>
-
 		<!-- yield takes you to index.erb -->
 		<%= yield %>
 	</body>
